@@ -1,0 +1,37 @@
+<div class="column">
+
+    <div class="card" *ngFor="let data of launchData" >
+       
+            <div class="card-image">
+                <img src="{{data.links.mission_patch_small}}">
+              </div>
+              <div class="card-content p-10">
+                <div class="card-title">{{data.mission_name}} #{{data.flight_number}}</div>
+                <div class="card-intro mt-10">
+                <p>
+                    Mission Ids :  </p> 
+                    <ul>
+                        <li *ngIf="data.mission_id.length===0">Not available</li>
+                        <li *ngFor="let msnIds of data.mission_id">
+                        {{msnIds}}
+                        </li>
+                    </ul>
+                
+               
+               <p> Launch Year: <span>{{data.launch_year}}</span></p>
+        
+                <p>Successful Launch: <span>{{data.launch_success}}</span></p>
+        
+                <p>Successful Landing: <span>{{data.launch_landing}}</span></p>
+                </div>
+              </div>
+
+      
+         
+        </div>
+    </div>
+
+
+    
+
+

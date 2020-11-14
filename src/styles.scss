@@ -1,0 +1,269 @@
+/* You can add global styles to this file, and also import other style files */
+/*:host {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+ 
+  .header {
+    text-align: left;
+    padding: 32px;
+  }
+
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+   
+  }
+  .row{
+    display: flex;
+    flex-wrap: wrap;
+     padding: 0 4px;
+  }
+
+.side-bar {
+  flex: 20%;
+  max-width: 20%;
+}
+
+.main-content {
+  flex: 80%;
+  background-color: white;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.column {
+  flex: 20%;
+  max-width: 20%;
+  padding: 0 4px;
+}
+
+
+
+ .card{
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  flex: 20%;
+  max-width: 20%;
+  background-color: #fff;
+ 
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  
+ }
+
+ .footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
+
+
+
+
+  @media screen and (min-width: 700px) {
+  
+}
+ 
+@media screen  and (min-width:700px) and (max-width:1024px) {
+ 
+}
+ 
+ 
+@media screen  and (min-width:1024px) and (max-width:1440px) {
+ 
+}
+*/@at-root
+* {
+  box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  background-color: #f2f2f2;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Header/logo Title */
+.header {
+  padding: 10px 10px 0px;
+  text-align: left;
+  h1{
+    margin: 0;
+  }
+}
+
+
+/* Column container */
+.row {  
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side-bar {
+  flex: 20%;
+  padding: 8px;
+  .side-menu-container{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: #fff;
+    border-radius: 8px;
+    h3{
+      margin: 0px;
+      font-size: 20px;
+    }
+    h6{
+      text-align: center;
+      font-size: 14px;
+      font-weight: 400;
+      margin: 14px 0 18px;
+    }
+    h6::after {
+      content: "";
+      display: block;
+      border-bottom: 2px solid #ccc;
+      width: 50%;
+      position: relative;
+      bottom: -6px;
+      left: calc(50% - 65px);
+  
+    }
+    .year-container{
+          
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: auto;
+      width: 85%;
+      .menu-items{
+        
+      display: flex;
+      flex-direction: column;
+      flex-basis: 100%;
+      flex: 1;
+      text-align: center;
+      }
+      .item-left{
+        text-align: left;
+      }
+      .item-right{
+        text-align: right;
+      }
+    }
+    button{
+      border-radius: 4px;
+      border: none;
+      padding: 8px;
+      min-width: 90px;
+      color: #050505;
+      background-color: #c5e09b;
+      font-size: 15px;
+    }
+    button:hover,button:active{
+      outline: none;
+      background-color:#7cba01;
+    }
+  }
+}
+
+/* Main column */
+.main-content {
+  flex: 80%;
+ }
+.column{
+  display: flex;
+  flex-wrap: wrap;
+  gap:.3em;
+}
+.card{
+  border-radius: 8px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex: 1 0 10%;
+  margin: 8px;
+}
+.card-fixedWidth{
+  max-width: 30px;
+}
+.card-image {
+  max-width: 100%;
+  height: auto;
+  background-color: #f2f2f2;
+  margin: 10px;
+  
+}
+.card-content{
+  font-size: .97rem;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    color:#22457e;
+    .card-title{
+      font-size: 16px;
+      font-weight: 800;
+     }
+     .card-intro p{
+       color:#050505;
+       font-weight: 800;
+       span{
+         color:#22457e;
+         font-weight: normal;
+       }
+     }
+}
+
+.p-10{
+  padding:10px;
+}
+.mt-10{
+  margin-top:10px;
+}
+/* Fake image, just for this example */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Footer */
+.footer h2{
+  padding:10px 0px 0px;
+  text-align: center;
+  span{
+    font-weight: 400;
+  }
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row, .navbar {   
+    flex-direction: column;
+  }
+}
+

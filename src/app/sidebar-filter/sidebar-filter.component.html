@@ -1,0 +1,44 @@
+
+  <div class="side-menu-container p-10">
+      <h3>Filters</h3>
+      <h6>Launch Year</h6>
+     
+       <div class="year-container" *ngFor="let year of launchYears;let i=index">
+         <div class="menu-items" >
+          <div  class="item-left">
+            <button (click)="getLaunchYear(year)"  [style.display]="i%2!==0 ? 'none' : ''">{{year}}</button>
+           </div>
+         </div>
+         <div class="menu-items">
+          <div  class="item-right">
+            <button (click)="getLaunchYear(year)"  [style.display]="i%2===0 ? 'none' : ''">{{year}}</button>
+           </div>
+        </div>
+       </div>
+        <div >
+        
+        </div>
+        
+     
+     
+      <h6>Successful Launch</h6>
+      <div class="year-container" *ngFor="let launch of successfulLaunch">
+        <div class="menu-items">
+          <div  class="item-left">
+          <button (click)="getSuccessfulLaunch(launch.key)" [style.display]="!launch.key ? 'none' : ''">{{launch.value}}</button>
+          </div>
+       </div>
+       <div class="menu-items">
+        <div  class="item-right">
+        <button (click)="getSuccessfulLaunch(launch.key)"  [style.display]="launch.key ? 'none' : ''">{{launch.value}}</button>
+        </div>
+     </div>
+      </div>
+     
+      <h6>Successful Landing</h6>
+      <div *ngFor="let landing of successfulLanding">
+        <button (click)="getSuccessfulLanding(landing.key)">{{landing.value}}</button>
+    </div>
+   
+  </div>
+
