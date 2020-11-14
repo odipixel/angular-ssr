@@ -1,10 +1,48 @@
-# ServerSideRendering
+# About the project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.8.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.8 and Angular Universal(a technology that renders Angular Applications on the server).
+
+A normal angular application executes in the browser,rendering pages in DOM but Angular Universal executes on the server and generates static pages which can be later bootstrapped on the client.
+
+### Built With
+
+A list of commonly used resources.
+
+* [Angular](https://angular.io/)
+* [Angular CLI](https://cli.angular.io/)
+* [Angular Universal](https://angular.io/guide/universal)
+* [Express](https://expressjs.com/)
+
+## Getting Started
+
+To get a local copy up and running follow below simple steps.
+
+### Prerequisites
+* node
+* npm
+```sh
+npm install npm@latest -g
+```
+* angular cli
+```sh
+npm install -g @angular/cli
+```
+
+### Installation
+
+1. Clone the repo
+```sh
+git clone https://github.com/odipixel/angular-ssr.git
+```
+2. Install NPM packages
+```sh
+npm install
+```
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+To start this app on your local system,run  `npm run dev:ssr` command.
+Open a browser and navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -12,7 +50,11 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `npm run build:ssr` to build the project. The build artifacts will be stored in the `dist/` directory. 
+
+## Deployment
+
+Run `npm run build:ssr` to build the project. The build artifacts will be stored in the `dist/` directory. 
 
 ## Running unit tests
 
