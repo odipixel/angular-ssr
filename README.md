@@ -1,5 +1,7 @@
 # About the project
 
+[![Server Side Rendering][product-screenshot]](https://example.com)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.8 and Angular Universal(a technology that renders Angular Applications on the server).
 
 A normal angular application executes in the browser,rendering pages in DOM but Angular Universal executes on the server and generates static pages which can be later bootstrapped on the client.
