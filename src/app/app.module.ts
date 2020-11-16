@@ -17,7 +17,7 @@ import { LaunchesComponent } from './launches/launches/launches.component';
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserTransferStateModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

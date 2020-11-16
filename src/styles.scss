@@ -1,92 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
-/*:host {
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    color: #333;
-    box-sizing: border-box;
-}
 
-body{
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-}
-
-
-* {
-  box-sizing: border-box;
-}
- 
-  .header {
-    text-align: left;
-    padding: 32px;
-  }
-
-.container{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-   
-  }
-  .row{
-    display: flex;
-    flex-wrap: wrap;
-     padding: 0 4px;
-  }
-
-.side-bar {
-  flex: 20%;
-  max-width: 20%;
-}
-
-.main-content {
-  flex: 80%;
-  background-color: white;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.column {
-  flex: 20%;
-  max-width: 20%;
-  padding: 0 4px;
-}
-
-
-
- .card{
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  flex: 20%;
-  max-width: 20%;
-  background-color: #fff;
- 
-  border: 1px solid rgba(0,0,0,.125);
-  border-radius: .25rem;
-  
- }
-
- .footer {
-  padding: 20px;
-  text-align: center;
-  background: #ddd;
-}
-
-
-
-
-  @media screen and (min-width: 700px) {
-  
-}
- 
-@media screen  and (min-width:700px) and (max-width:1024px) {
- 
-}
- 
- 
-@media screen  and (min-width:1024px) and (max-width:1440px) {
- 
-}
-*/@at-root
+@at-root
 * {
   box-sizing: border-box;
 }
@@ -127,6 +40,7 @@ body {
     position: relative;
     background-color: #fff;
     border-radius: 8px;
+    padding-bottom: 20px;
     h3{
       margin: 0px;
       font-size: 20px;
@@ -200,7 +114,8 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
-  flex: 1 0 10%;
+ // flex: 1 0 10%;
+ min-width: 20%;
   margin: 8px;
 }
 .card-fixedWidth{
@@ -210,8 +125,10 @@ body {
   max-width: 100%;
   height: auto;
   background-color: #f2f2f2;
-  margin: 10px;
-  
+  margin: 14px;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
 }
 .card-content{
   font-size: .97rem;
@@ -241,15 +158,16 @@ body {
 .p-10{
   padding:10px;
 }
+.p-14{
+  padding:14px;
+}
 .mt-10{
   margin-top:10px;
 }
-/* Fake image, just for this example */
-.fakeimg {
-  background-color: #aaa;
-  width: 100%;
-  padding: 20px;
+.mb-12{
+  margin-bottom: 12px;
 }
+
 
 /* Footer */
 .footer h2{
@@ -260,10 +178,47 @@ body {
   }
 }
 
-/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+/* Responsive layout-Mobile */
+
 @media screen and (max-width: 700px) {
-  .row, .navbar {   
-    flex-direction: column;
+  .side-bar {
+    flex: 100%;
+    padding: 14px;
+}
+  .main-content {
+    flex: 100%;
+    padding: 14px;
+}
+  .card {
+    min-width: 100%;
+    margin: 0px 0px 14px 0px;
   }
+ 
+}
+ /* Responsive layout-Tablet */
+@media screen  and (min-width:700px) and (max-width:1024px) {
+  .side-bar {
+    flex: 40%;
+    padding: 8px;
+}
+.main-content {
+  flex: 60%;
+ }
+ .side-bar .side-menu-container .year-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: auto;
+  width: 85%;
 }
 
+.card {
+  min-width: 100%;
+  margin: 0px 0px 14px 0px;
+}
+}
+ 
+ /* Responsive layout-Desktop */
+@media screen  and (min-width:1024px) and (max-width:1440px) {
+  
+}

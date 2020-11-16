@@ -1,7 +1,8 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async ,inject } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import {HttpService} from "./services/http.service";
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -11,6 +12,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      providers: [HttpService, HttpClientModule]
     }).compileComponents();
   }));
 
@@ -20,16 +22,20 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'server-side-rendering'`, () => {
+  it(`should have as title 'SpaceX Launch Programs'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('server-side-rendering');
+    expect(app.title).toEqual('SpaceX Launch Programs');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('server-side-rendering app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('SpaceX Launch Programs app is running!');
   });
+
+  it('should be created', inject([HttpService], (service: HttpService) => {
+    expect(service).toBeTruthy();
+  }));
 });

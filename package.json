@@ -12,7 +12,6 @@
     "serve:ssr": "node dist/server-side-rendering/server/main.js",
     "build:ssr": "ng build --prod && ng run server-side-rendering:server:production",
     "prerender": "ng run server-side-rendering:prerender"
-    
   },
   "private": true,
   "dependencies": {
