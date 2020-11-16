@@ -1,6 +1,6 @@
 # About the project
 
-[![Server Side Rendering]](https://github.com/odipixel/angular-ssr/blob/main/src/assets/images/spacex.jpg)
+![Server Side Rendering](https://github.com/odipixel/angular-ssr/blob/main/src/assets/images/spacex.jpg)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.8 and Angular Universal(a technology that renders Angular Applications on the server).
 
