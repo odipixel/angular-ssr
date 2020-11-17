@@ -176,6 +176,9 @@ git clone https://github.com/odipixel/angular-ssr.git
 ```sh
 npm install
 ```
+### Configurations
+
+All API configurations can be found in `environment.ts` file.By default api limit is 8 and it can be configurable.New APIs as well as existing APIs can be added or edited from here. 
 
 ## Development server
 
