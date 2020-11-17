@@ -2,6 +2,8 @@
 
 ![Server Side Rendering](https://github.com/odipixel/angular-ssr/blob/main/src/assets/images/spacex.jpg)
 
+[Click here for demo](https://spacex-ssrapp.herokuapp.com/)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.8 and Angular Universal(a technology that renders Angular Applications on the server).
 
 A normal angular application executes in the browser,rendering pages in DOM but Angular Universal executes on the server and generates static pages which can be later bootstrapped on the client.
