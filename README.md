@@ -10,9 +10,36 @@ A normal angular application executes in the browser,rendering pages in DOM but 
 
 As we know angular applications rely heavily on JavaScript and most search engines do not even execute JavaScript, In that case, we can render our application on the server and send back the rendered HTML. As the result, the crawler now can index our page properly.
 
+Angular’s Meta service makes it easy to get or set meta tags depending on the current active route in your app. We have to import Meta Service form `@angular/platform-browser` and inject it in a component.
+
+```sh
+import { Meta } from '@angular/platform-browser';
+ ```
+You can use the `addTags` method to add multiple meta tags.
+
+```sh
+this.metaTagService.addTags([
+      { name: 'keywords', content: 'Angular Server Side Rendering,SSR,Angular,Angular Universal' },
+      { name: 'robots', content: 'index, follow' },
+      { name: 'author', content: 'Kishore Mallick' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'date', content: '16-11-2020', scheme: 'DD-MM-YYYY' },
+      { charset: 'UTF-8' }
+    ]);
+ ```
+
 # Social Media Embedding
 
 Most of social media sites ignore JavaScript, as well. So when a link to our page is shared, we would not get a desired result with our page in it. As they have no problem handling HTML, so it will be easy to render our embeded social media contents.
+
+```sh
+this.metaTagService.addTag({name: 'twitter:card', content: 'summary'});
+this.metaTagService.addTag({name: 'twitter:site', content: '@ServerSideRendering'});
+this.metaTagService.addTag({name: 'twitter:title', content: this.pageTitle});
+this.metaTagService.addTag({name: 'twitter:description', content: 'This page describes Angular Server Side Rendering'});
+this.metaTagService.addTag({name: 'twitter:text:description', content: 'This page describes Angular Server Side Rendering'});
+this.metaTagService.addTag({name: 'twitter:image', content: 'https://avatars3.githubusercontent.com/u/16628232?v=3&s=200'});
+ ```
 
 # Browser Module
 
@@ -71,6 +98,47 @@ export class AppModule { }
 ```
 
 We can detect if we are on the server or on the browser app by calling the `hasKey` method.
+
+```sh
+const RESULT_KEY = makeStateKey<string>('spaceXData');
+...
+ private isServer: boolean;
+
+ constructor(private http: HttpClient,private apiService:HttpService,
+    private transferState: TransferState,@Inject(PLATFORM_ID) private platformId: Object) {
+      this.isServer = isPlatformServer(platformId);
+}
+...
+ ngOnInit() {
+    let spacexTransferStateKey = RESULT_KEY;
+       
+    if(this.transferState.hasKey(spacexTransferStateKey)) {
+      this.launchData = this.transferState.get(spacexTransferStateKey, {});
+      this.transferState.remove(spacexTransferStateKey);
+  } else if (this.isServer){
+     this.apiService.getAllLaunches().subscribe((res)=>{
+      this.launchData=res;
+      this.transferState.set(spacexTransferStateKey, this.launchData);
+     }); 
+  }
+  ```
+## Data Sharing between components
+
+The BehaviorSubject holds the value that needs to be shared with other components. These components subscribe to data which is simple returning the BehaviorSubject value without the functionality to change the value.A BehaviorSubject  can emit the current value.
+
+* In http.service.ts `BehaviorSubject` is initialized.
+```sh
+  private apiData = new BehaviorSubject<any>(null);
+  public apiData$ = this.apiData.asObservable();
+```
+* In sidebar-filter.component.ts you have to set the API responses.
+```sh
+this.apiService.setData(this.launchData);
+```
+* Component have to subscribe the data by returning the BehaviorSubject value
+```sh
+apiService.apiData$.subscribe(data => this.launchData = data);
+```
 ## Built With
 
 A list of commonly used resources in this project.

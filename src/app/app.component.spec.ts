@@ -2,12 +2,15 @@ import { TestBed, async ,inject } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import {HttpService} from "./services/http.service";
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientTestingModule,
+        RouterTestingModule.withRoutes([]),
       ],
       declarations: [
         AppComponent
@@ -22,20 +25,15 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'SpaceX Launch Programs'`, () => {
+  it(`should have a title 'SpaceX Launch Programs'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('SpaceX Launch Programs');
   });
 
-  it('should render title', () => {
+  it(`should have a footer developed by :'Kishore Mallick'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('SpaceX Launch Programs app is running!');
+    const app = fixture.componentInstance;
+    expect(app.developedBy).toEqual('Kishore Mallick');
   });
-
-  it('should be created', inject([HttpService], (service: HttpService) => {
-    expect(service).toBeTruthy();
-  }));
 });

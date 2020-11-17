@@ -1,18 +1,24 @@
 import { async, ComponentFixture, TestBed,inject } from '@angular/core/testing';
-
+import { ActivatedRoute } from '@angular/router';
 import { LaunchesComponent } from './launches.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import {HttpService} from "../../services/http.service";
+import { TransferState } from "@angular/platform-browser";
 describe('LaunchesComponent', () => {
   let component: LaunchesComponent;
   let fixture: ComponentFixture<LaunchesComponent>;
+ 
+  const fakeActivatedRoute = {
+    snapshot: { data: {  } }
+  } as ActivatedRoute;
+
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule], 
       declarations: [ LaunchesComponent ],
-      providers: [HttpService, HttpClientModule]
+      providers: [HttpService, HttpClientModule,TransferState,{provide:ActivatedRoute, useValue: fakeActivatedRoute}]
     })
     .compileComponents();
   }));
@@ -27,14 +33,7 @@ describe('LaunchesComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should be created', () => {
-    const service: HttpService = TestBed.get(HttpService);
-    expect(service).toBeTruthy();
-   });
+  
 
-   it('should have getAllLaunches function', () => {
-    const service: HttpService = TestBed.get(HttpService);
-    expect(service.getAllLaunches).toBeTruthy();
-   });
   
 });
